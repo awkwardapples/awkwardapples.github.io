@@ -1,88 +1,19 @@
-<html>
-    <head>
-        <style>
-            body {
-                margin: 0;
-                overflow: hidden;
-            }
-        </style>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<header><b>Hello</b></header>
+<body>
+    <i>Hello</i>
 
-    
-    <body>
-        
-        <script type = "module">
-        import * as THREE from "https://web.cs.manchester.ac.uk/three/three.js-master/build/three.module.js";
-        var camera, scene, renderer, mesh;
-        // Your Javascript goes here
+<body style="background-color: cornsilk;"></body>
 
-        function animate() {
-            renderer.render(scene, camera);
-            requestAnimationFrame(animate);
-            mesh.rotation.x += 0.011; // Increasing / decreasing these values will change the speed that the shape moves
-            mesh.rotation.y += 0.013;
-        }
+<img src="D:\Downloads\danny.png" alt="Italian Trulli">
 
-        function initialisation() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-        // PerspectiveCamera( fov, aspect, near, far) 
-        // fov — Camera frustum vertical field of view.    - Increasing will make a greater verticle angle from bottom to top of view - Decreasing will make a smaller angle.
-        // aspect — Camera frustum aspect ratio.           - Should be width / height of window as it specifies the width to height ratio. for example 1 would be a square. increasing and decreasing would respectively make the shape wider / thinner, and taller / shorter.
-        // near — Camera frustum near plane.               - Increasing will increase the size of the camera frustrum of the near plane but it must be smaller than the size of the far plane.
-        // far — Camera frustum far plane.                 - Increasing will make a greater size of the camera frustrum on the far plane ( must be bigger than near plane )
+</body>
 
-        camera.position.z = 5;
-        // Changes the perspective of the camera in the z axis - Increasing it will move the camera foward in the z axis and decreasing it will move the camwra backwars in the z axis.
-        renderer = new THREE.WebGLRenderer();
-        renderer.setClearColor(0x000000, 1.0); // changing the first parameter after setClearColor to a different hex value will change the colour of the shape.
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        // Changes the size of the canvas
-        document.body.appendChild( renderer.domElement );
-        }
-
-        function shaderCube(){
-        var geometry = new THREE.BoxGeometry(2, 1, 1);
-        // BoxGeometry(width, height, depth)
-        // width — Width;                                   - Increases / decreases the length of the edges parallel to the X axis. Optional; defaults to 1.
-        // height — Height;                                 - Increases the length of the edges parallel to the Y axis.
-        // depth — Depth;                                   - Increases the length of the edges parallel to the Z axis.
-        var material = new THREE.ShaderMaterial({
-            fragmentShader: fragmentShader(),
-            vertexShader: vertexShader(),
-        })
-        mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh)
-    }
-        
-        function vertexShader(){
-            return `
-                vec4 p;
-                varying vec3 vposInterpolated;
-
-                void main() {
-                    p = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-                    gl_Position = p;
-                    vposInterpolated = p.xyz;
-                }
-                `
-                
-        }
-
-        function fragmentShader(){
-            return  `
-                varying vec3 vposInterpolated;
-
-                void main() {
-                    gl_FragColor = vec4(vposInterpolated, 1.0);
-                }
-                `
-        }
-
-        initialisation();
-        shaderCube();
-        animate();
-
-        </script>
-    </body>
 </html>
