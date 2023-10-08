@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/awkwardapples/awkwardapples.github.io/static/css/main.ac91153b.css",
+    "main.js": "/awkwardapples/awkwardapples.github.io/static/js/main.016e0535.js",
+    "static/js/787.f587e8d5.chunk.js": "/awkwardapples/awkwardapples.github.io/static/js/787.f587e8d5.chunk.js",
+    "index.html": "/awkwardapples/awkwardapples.github.io/index.html",
+    "main.ac91153b.css.map": "/awkwardapples/awkwardapples.github.io/static/css/main.ac91153b.css.map",
+    "main.016e0535.js.map": "/awkwardapples/awkwardapples.github.io/static/js/main.016e0535.js.map",
+    "787.f587e8d5.chunk.js.map": "/awkwardapples/awkwardapples.github.io/static/js/787.f587e8d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac91153b.css",
+    "static/js/main.016e0535.js"
+  ]
+}
